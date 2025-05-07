@@ -1,0 +1,2219 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 52,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<img src=\"https://i.postimg.cc/4dwXfSHK/Logo.png\" \n     style=\"width: 150px; height: 70px; transform: scaleY(-1);\" \n     alt=\"Logo\">\n\n\n\n",
+        "mode": "html"
+      },
+      "pluginVersion": "11.3.0+security-01",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "uid": "Zabbix"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 16,
+        "x": 4,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": false,
+        "calcsMutation": "standard",
+        "centerAlignContent": true,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": ".button {\n  cursor: pointer;\n  font-size: 1.8rem;\n  border-radius: 30px;\n  border: none;\n  padding: 1px;\n  background: radial-gradient(circle 100px at 80% -10%, #ffffff, #181b1b);\n  position: relative;\n}\n.button::after {\n  content: \"\";\n  position: absolute;\n  width: 75%;\n  height: 70%;\n  border-radius: 150px;\n  top: 0;\n  right: 0;\n  box-shadow: 0 0 50px #ffffff38;\n  z-index: -1;\n}\n\n.blob1 {\n  position: absolute;\n  width: 200px;\n  height: 100%;\n  border-radius: 20px;\n  bottom: 0;\n  left: 0;\n  background: radial-gradient(\n    circle 100px at 10% 50%,\n    #3fe9ff,\n    #003641,\n    transparent\n  );\n  box-shadow: -10px 10px 50px #003641;\n}\n\n.inner {\n  padding: 20px 200px;\n  border-radius: 25px;\n  color: #f8ece9;\n  z-index: 3;\n  position: relative;\n  background: radial-gradient(circle 150px at 80% -80%, #003641, #0f1111);\n}\n.inner::before {\n  content: \"\";\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  border-radius: 10px;\n  background: radial-gradient(\n    circle 60px at 0% 100%,\n    #00e1ff1a,\n    #0000ff11,\n    transparent\n  );\n  position: absolute;\n}\n",
+        "dynamicData": false,
+        "dynamicFieldDisplayValues": false,
+        "dynamicHtmlGraphics": false,
+        "dynamicProps": false,
+        "html": "<button class=\"button\">\n  <div class=\"blob1\"></div>\n  <div class=\"blob2\"></div>\n  <div class=\"inner\">Active Directory</div>\n</button>\n",
+        "onInit": "// Sets the text from customProperties\nconst htmlgraphicsText = htmlNode.getElementById('htmlgraphics-text');\n\nif (htmlgraphicsText) {\n  htmlgraphicsText.textContent = customProperties.text;\n\n  // Change the text color based on the theme\n  if (theme.isDark) {\n    htmlgraphicsText.style.color = 'green';\n  } else {\n    htmlgraphicsText.style.color = 'red';\n  }\n}\n",
+        "onInitOnResize": false,
+        "onRender": "// Sets the value from the first series on every refresh\nconst htmlgraphicsValue = htmlNode.getElementById('htmlgraphics-value');\n\nif (htmlgraphicsValue) {\n  const valueField = data.series[0]?.fields[1];\n  if (valueField) {\n    const length = valueField.values.length;\n    htmlgraphicsValue.textContent = valueField.values.get(length - 1);\n  } else {\n    htmlgraphicsValue.textContent = \"No data\"\n  }\n}\n",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull",
+            "last",
+            "firstNotNull",
+            "first",
+            "min",
+            "max",
+            "mean",
+            "median",
+            "sum",
+            "count",
+            "range",
+            "delta",
+            "step",
+            "diff",
+            "logmin",
+            "allIsZero",
+            "allIsNull",
+            "diffperc"
+          ]
+        },
+        "renderOnMount": true,
+        "rootCSS": "",
+        "useGrafanaScrollbar": true
+      },
+      "pluginVersion": "2.1.1",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<img src=\"https://i.postimg.cc/4dwXfSHK/Logo.png\" \n     style=\"width: 150px; height: 70px; transform: scaleY(-1);\" \n     alt=\"Logo\">\n\n\n\n",
+        "mode": "html"
+      },
+      "pluginVersion": "11.3.0+security-01",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 23,
+        "x": 0,
+        "y": 3
+      },
+      "id": 2,
+      "options": {
+        "activeTheme": "Tema",
+        "disableThemePicker": true,
+        "themes": [
+          {
+            "name": "Tema",
+            "styles": [
+              {
+                "props": {
+                  "theme": "default"
+                },
+                "type": "basetheme"
+              },
+              {
+                "props": {
+                  "url": "https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54050.jpg?t=st=1746626550~exp=1746630150~hmac=02d7028e2d03766d0b5b54807c16272187d170c606f77428f14df246eaa64cdc&w=1800"
+                },
+                "type": "bgimage"
+              },
+              {
+                "props": {
+                  "url": ""
+                },
+                "type": "url"
+              },
+              {
+                "props": {
+                  "text": ""
+                },
+                "type": "style"
+              }
+            ]
+          }
+        ]
+      },
+      "pluginVersion": "0.2.1",
+      "title": "",
+      "transparent": true,
+      "type": "yesoreyeram-boomtheme-panel"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 1,
+        "y": 5
+      },
+      "id": 49,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "image": {
+                  "fixed": "img/bg/dev_ad.png"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "transparent"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/question-circle.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Servers",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 180,
+                "left": 384,
+                "top": 33,
+                "width": 124
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "image": {
+                  "fixed": "img/bg/user_ad.png"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "transparent"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/question-circle.svg",
+                  "mode": "fixed"
+                }
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Users",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 214,
+                "left": 101,
+                "top": 39,
+                "width": 100
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "super-light-blue"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "super-light-blue"
+                },
+                "radius": 37,
+                "width": 7
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#051937"
+                },
+                "size": 20,
+                "text": {
+                  "field": "dev_active",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "dev_active",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 61,
+                "left": 400,
+                "top": 142,
+                "width": 64
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "super-light-blue"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "super-light-blue"
+                },
+                "radius": 37,
+                "width": 7
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#051937"
+                },
+                "size": 20,
+                "text": {
+                  "field": "user_active",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "user_active",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 61,
+                "left": 119,
+                "rotation": 0,
+                "top": 146,
+                "width": 64
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1746475949497",
+          "oneClickMode": "off",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "rotation": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "11.3.0+security-01",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "ce4lzugood4hsc"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "hide": false,
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        },
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "ce4lzugood4hsc"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "hide": false,
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "dev_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 11,
+        "y": 5
+      },
+      "id": 54,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "image": {
+                  "fixed": "img/bg/grp_green_ad.png"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "transparent"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/question-circle.svg",
+                  "mode": "fixed"
+                }
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Users",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 192,
+                "left": 35,
+                "rotation": 0,
+                "top": 24,
+                "width": 95
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "green"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "green"
+                },
+                "radius": 37,
+                "width": 6
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#051937"
+                },
+                "size": 20,
+                "text": {
+                  "field": "qtde_group",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "qtde_group",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 58,
+                "left": 53,
+                "rotation": 0,
+                "top": 148,
+                "width": 63
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1746475949497",
+          "oneClickMode": "off",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "rotation": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "11.3.0+security-01",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "ce4lzugood4hsc"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "hide": false,
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "qtde_group"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        },
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "ce4lzugood4hsc"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "hide": false,
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "dev_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 16,
+        "y": 5
+      },
+      "id": 57,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "image": {
+                  "fixed": "img/bg/serv_inactive.png"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "transparent"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/question-circle.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Servers",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 180,
+                "left": 313,
+                "top": 35,
+                "width": 124
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "image": {
+                  "fixed": "img/bg/user_inactive.png"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "transparent"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/question-circle.svg",
+                  "mode": "fixed"
+                }
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Users",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 180,
+                "left": 34,
+                "rotation": 0,
+                "top": 35,
+                "width": 100
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "red"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "red"
+                },
+                "radius": 37,
+                "width": 7
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#051937"
+                },
+                "size": 20,
+                "text": {
+                  "field": "dev_deactive",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "dev_deactive",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 66,
+                "left": 330,
+                "top": 141,
+                "width": 63
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "red"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "red"
+                },
+                "radius": 37,
+                "width": 7
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#051937"
+                },
+                "size": 20,
+                "text": {
+                  "field": "user_deactive",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "user_deactive",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 69,
+                "left": 51,
+                "rotation": 0,
+                "top": 139,
+                "width": 65
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1746475949497",
+          "oneClickMode": "off",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "rotation": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "11.3.0+security-01",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "ce4lzugood4hsc"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "hide": false,
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_deactive"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        },
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "ce4lzugood4hsc"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "hide": false,
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "dev_deactive"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [
+            {
+              "title": "Lista Usuários Ativos",
+              "url": "http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72264&action=showlatest"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "list_user_active"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 2,
+        "y": 11
+      },
+      "id": 52,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": true,
+        "calcsMutation": "standard",
+        "centerAlignContent": true,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": "/* From Uiverse.io by S4tyendra */ \r\n.neon-button {\r\n  position: relative;\r\n  padding: 0.75em 1.5em;\r\n  border-radius: 0.625em;\r\n  border: 2px solid #00ffff;\r\n  font-size: 0.938em;\r\n  text-transform: uppercase;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  background: transparent;\r\n  color: #00ffff;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.neon-button:hover {\r\n  background: rgba(0, 255, 255, 0.1);\r\n  box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.5);\r\n  color: #ffffff;\r\n}\r\n\r\n.neon-button::before {\r\n  content: \"\";\r\n  display: block;\r\n  width: 0px;\r\n  height: 86%;\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  opacity: 0;\r\n  background: linear-gradient(90deg, transparent, #00ffff, transparent);\r\n  box-shadow: 0 0 50px 30px #00ffff;\r\n  transform: skewX(-20deg);\r\n  transition: all 0.5s ease-in-out;\r\n}\r\n\r\n.neon-button:hover::before {\r\n  animation: neon-shine 0.6s 0s linear;\r\n}\r\n\r\n@keyframes neon-shine {\r\n  from {\r\n    opacity: 0;\r\n    left: 0%;\r\n  }\r\n\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    left: 100%;\r\n  }\r\n}\r\n\r\n.neon-button:active {\r\n  transform: scale(0.95);\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.2s ease-in;\r\n}\r\n",
+        "dynamicData": false,
+        "dynamicFieldDisplayValues": false,
+        "dynamicHtmlGraphics": false,
+        "dynamicProps": false,
+        "html": "<a href=\"http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72264&action=showlatest\" target=\"_blank\">\r\n  <button class=\"neon-button\">Clique Aqui!</button>\r\n</a>\r\n",
+        "onInit": "// Sets the text from customProperties\nconst htmlgraphicsText = htmlNode.getElementById('htmlgraphics-text');\n\nif (htmlgraphicsText) {\n  htmlgraphicsText.textContent = customProperties.text;\n\n  // Change the text color based on the theme\n  if (theme.isDark) {\n    htmlgraphicsText.style.color = 'green';\n  } else {\n    htmlgraphicsText.style.color = 'red';\n  }\n}\n",
+        "onInitOnResize": false,
+        "onRender": "// Sets the value from the first series on every refresh\nconst htmlgraphicsValue = htmlNode.getElementById('htmlgraphics-value');\n\nif (htmlgraphicsValue) {\n  const valueField = data.series[0]?.fields[1];\n  if (valueField) {\n    const length = valueField.values.length;\n    htmlgraphicsValue.textContent = valueField.values.get(length - 1);\n  } else {\n    htmlgraphicsValue.textContent = \"No data\"\n  }\n}\n",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull",
+            "last",
+            "firstNotNull",
+            "first",
+            "min",
+            "max",
+            "mean",
+            "median",
+            "sum",
+            "count",
+            "range",
+            "delta",
+            "step",
+            "diff",
+            "logmin",
+            "allIsZero",
+            "allIsNull",
+            "diffperc"
+          ]
+        },
+        "renderOnMount": true,
+        "rootCSS": "",
+        "useGrafanaScrollbar": true
+      },
+      "pluginVersion": "2.1.1",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "kvp",
+            "keepTime": false,
+            "replace": false,
+            "source": "list_user_active"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "list_user_active"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 6,
+        "y": 11
+      },
+      "id": 53,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": true,
+        "calcsMutation": "standard",
+        "centerAlignContent": true,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": "/* From Uiverse.io by S4tyendra */ \r\n.neon-button {\r\n  position: relative;\r\n  padding: 0.75em 1.5em;\r\n  border-radius: 0.625em;\r\n  border: 2px solid #00ffff;\r\n  font-size: 0.938em;\r\n  text-transform: uppercase;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  background: transparent;\r\n  color: #00ffff;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.neon-button:hover {\r\n  background: rgba(0, 255, 255, 0.1);\r\n  box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.5);\r\n  color: #ffffff;\r\n}\r\n\r\n.neon-button::before {\r\n  content: \"\";\r\n  display: block;\r\n  width: 0px;\r\n  height: 86%;\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  opacity: 0;\r\n  background: linear-gradient(90deg, transparent, #00ffff, transparent);\r\n  box-shadow: 0 0 50px 30px #00ffff;\r\n  transform: skewX(-20deg);\r\n  transition: all 0.5s ease-in-out;\r\n}\r\n\r\n.neon-button:hover::before {\r\n  animation: neon-shine 0.6s 0s linear;\r\n}\r\n\r\n@keyframes neon-shine {\r\n  from {\r\n    opacity: 0;\r\n    left: 0%;\r\n  }\r\n\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    left: 100%;\r\n  }\r\n}\r\n\r\n.neon-button:active {\r\n  transform: scale(0.95);\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.2s ease-in;\r\n}\r\n",
+        "dynamicData": false,
+        "dynamicFieldDisplayValues": false,
+        "dynamicHtmlGraphics": false,
+        "dynamicProps": false,
+        "html": "<a href=\"http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72268&action=showlatest\" target=\"_blank\">\r\n  <button class=\"neon-button\">Clique Aqui!</button>\r\n</a>\r\n",
+        "onInit": "// Sets the text from customProperties\nconst htmlgraphicsText = htmlNode.getElementById('htmlgraphics-text');\n\nif (htmlgraphicsText) {\n  htmlgraphicsText.textContent = customProperties.text;\n\n  // Change the text color based on the theme\n  if (theme.isDark) {\n    htmlgraphicsText.style.color = 'green';\n  } else {\n    htmlgraphicsText.style.color = 'red';\n  }\n}\n",
+        "onInitOnResize": false,
+        "onRender": "// Sets the value from the first series on every refresh\nconst htmlgraphicsValue = htmlNode.getElementById('htmlgraphics-value');\n\nif (htmlgraphicsValue) {\n  const valueField = data.series[0]?.fields[1];\n  if (valueField) {\n    const length = valueField.values.length;\n    htmlgraphicsValue.textContent = valueField.values.get(length - 1);\n  } else {\n    htmlgraphicsValue.textContent = \"No data\"\n  }\n}\n",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull",
+            "last",
+            "firstNotNull",
+            "first",
+            "min",
+            "max",
+            "mean",
+            "median",
+            "sum",
+            "count",
+            "range",
+            "delta",
+            "step",
+            "diff",
+            "logmin",
+            "allIsZero",
+            "allIsNull",
+            "diffperc"
+          ]
+        },
+        "renderOnMount": true,
+        "rootCSS": "",
+        "useGrafanaScrollbar": true
+      },
+      "pluginVersion": "2.1.1",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "kvp",
+            "keepTime": false,
+            "replace": false,
+            "source": "list_user_active"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "list_user_active"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 11,
+        "y": 11
+      },
+      "id": 58,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": true,
+        "calcsMutation": "standard",
+        "centerAlignContent": true,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": "/* From Uiverse.io by S4tyendra */ \r\n.neon-button {\r\n  position: relative;\r\n  padding: 0.75em 1.5em;\r\n  border-radius: 0.625em;\r\n  border: 2px solid #04ff00;\r\n  font-size: 0.938em;\r\n  text-transform: uppercase;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  background: transparent;\r\n  color: #04ff00;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.neon-button:hover {\r\n  background: rgba(0, 255, 255, 0.1);\r\n  box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.5);\r\n  color: #ffffff;\r\n}\r\n\r\n.neon-button::before {\r\n  content: \"\";\r\n  display: block;\r\n  width: 0px;\r\n  height: 86%;\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  opacity: 0;\r\n  background: linear-gradient(90deg, transparent, #00ffff, transparent);\r\n  box-shadow: 0 0 50px 30px #00ffff;\r\n  transform: skewX(-20deg);\r\n  transition: all 0.5s ease-in-out;\r\n}\r\n\r\n.neon-button:hover::before {\r\n  animation: neon-shine 0.6s 0s linear;\r\n}\r\n\r\n@keyframes neon-shine {\r\n  from {\r\n    opacity: 0;\r\n    left: 0%;\r\n  }\r\n\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    left: 100%;\r\n  }\r\n}\r\n\r\n.neon-button:active {\r\n  transform: scale(0.95);\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.2s ease-in;\r\n}\r\n",
+        "dynamicData": false,
+        "dynamicFieldDisplayValues": false,
+        "dynamicHtmlGraphics": false,
+        "dynamicProps": false,
+        "html": "<a href=\"http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72282&action=showlatest\" target=\"_blank\">\r\n  <button class=\"neon-button\">Clique Aqui!</button>\r\n</a>\r\n",
+        "onInit": "// Sets the text from customProperties\nconst htmlgraphicsText = htmlNode.getElementById('htmlgraphics-text');\n\nif (htmlgraphicsText) {\n  htmlgraphicsText.textContent = customProperties.text;\n\n  // Change the text color based on the theme\n  if (theme.isDark) {\n    htmlgraphicsText.style.color = 'green';\n  } else {\n    htmlgraphicsText.style.color = 'red';\n  }\n}\n",
+        "onInitOnResize": false,
+        "onRender": "// Sets the value from the first series on every refresh\nconst htmlgraphicsValue = htmlNode.getElementById('htmlgraphics-value');\n\nif (htmlgraphicsValue) {\n  const valueField = data.series[0]?.fields[1];\n  if (valueField) {\n    const length = valueField.values.length;\n    htmlgraphicsValue.textContent = valueField.values.get(length - 1);\n  } else {\n    htmlgraphicsValue.textContent = \"No data\"\n  }\n}\n",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull",
+            "last",
+            "firstNotNull",
+            "first",
+            "min",
+            "max",
+            "mean",
+            "median",
+            "sum",
+            "count",
+            "range",
+            "delta",
+            "step",
+            "diff",
+            "logmin",
+            "allIsZero",
+            "allIsNull",
+            "diffperc"
+          ]
+        },
+        "renderOnMount": true,
+        "rootCSS": "",
+        "useGrafanaScrollbar": true
+      },
+      "pluginVersion": "2.1.1",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "kvp",
+            "keepTime": false,
+            "replace": false,
+            "source": "list_user_active"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [
+            {
+              "title": "Lista Usuários Ativos",
+              "url": "http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72264&action=showlatest"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "list_user_active"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 16,
+        "y": 11
+      },
+      "id": 56,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": true,
+        "calcsMutation": "standard",
+        "centerAlignContent": true,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": "/* From Uiverse.io by S4tyendra */ \r\n.neon-button {\r\n  position: relative;\r\n  padding: 0.75em 1.5em;\r\n  border-radius: 0.625em;\r\n  border: 2px solid #ff4800f1;\r\n  font-size: 0.938em;\r\n  text-transform: uppercase;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  background: transparent;\r\n  color: #ff4800f1;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.neon-button:hover {\r\n  background: rgba(0, 255, 255, 0.1);\r\n  box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.5);\r\n  color: #ffffff;\r\n}\r\n\r\n.neon-button::before {\r\n  content: \"\";\r\n  display: block;\r\n  width: 0px;\r\n  height: 86%;\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  opacity: 0;\r\n  background: linear-gradient(90deg, transparent, #00ffff, transparent);\r\n  box-shadow: 0 0 50px 30px #00ffff;\r\n  transform: skewX(-20deg);\r\n  transition: all 0.5s ease-in-out;\r\n}\r\n\r\n.neon-button:hover::before {\r\n  animation: neon-shine 0.6s 0s linear;\r\n}\r\n\r\n@keyframes neon-shine {\r\n  from {\r\n    opacity: 0;\r\n    left: 0%;\r\n  }\r\n\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    left: 100%;\r\n  }\r\n}\r\n\r\n.neon-button:active {\r\n  transform: scale(0.95);\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.2s ease-in;\r\n}\r\n",
+        "dynamicData": false,
+        "dynamicFieldDisplayValues": false,
+        "dynamicHtmlGraphics": false,
+        "dynamicProps": false,
+        "html": "<a href=\"http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72276&action=showlatest\" target=\"_blank\">\r\n  <button class=\"neon-button\">Clique Aqui!</button>\r\n</a>\r\n",
+        "onInit": "// Sets the text from customProperties\nconst htmlgraphicsText = htmlNode.getElementById('htmlgraphics-text');\n\nif (htmlgraphicsText) {\n  htmlgraphicsText.textContent = customProperties.text;\n\n  // Change the text color based on the theme\n  if (theme.isDark) {\n    htmlgraphicsText.style.color = 'green';\n  } else {\n    htmlgraphicsText.style.color = 'red';\n  }\n}\n",
+        "onInitOnResize": false,
+        "onRender": "// Sets the value from the first series on every refresh\nconst htmlgraphicsValue = htmlNode.getElementById('htmlgraphics-value');\n\nif (htmlgraphicsValue) {\n  const valueField = data.series[0]?.fields[1];\n  if (valueField) {\n    const length = valueField.values.length;\n    htmlgraphicsValue.textContent = valueField.values.get(length - 1);\n  } else {\n    htmlgraphicsValue.textContent = \"No data\"\n  }\n}\n",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull",
+            "last",
+            "firstNotNull",
+            "first",
+            "min",
+            "max",
+            "mean",
+            "median",
+            "sum",
+            "count",
+            "range",
+            "delta",
+            "step",
+            "diff",
+            "logmin",
+            "allIsZero",
+            "allIsNull",
+            "diffperc"
+          ]
+        },
+        "renderOnMount": true,
+        "rootCSS": "",
+        "useGrafanaScrollbar": true
+      },
+      "pluginVersion": "2.1.1",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "kvp",
+            "keepTime": false,
+            "replace": false,
+            "source": "list_user_active"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [
+            {
+              "title": "Lista Usuários Ativos",
+              "url": "http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72264&action=showlatest"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "list_user_active"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 20,
+        "y": 11
+      },
+      "id": 60,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": true,
+        "calcsMutation": "standard",
+        "centerAlignContent": true,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": "/* From Uiverse.io by S4tyendra */ \r\n.neon-button {\r\n  position: relative;\r\n  padding: 0.75em 1.5em;\r\n  border-radius: 0.625em;\r\n  border: 2px solid #ff4800f1;\r\n  font-size: 0.938em;\r\n  text-transform: uppercase;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  background: transparent;\r\n  color: #ff4800f1;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.neon-button:hover {\r\n  background: rgba(0, 255, 255, 0.1);\r\n  box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.5);\r\n  color: #ffffff;\r\n}\r\n\r\n.neon-button::before {\r\n  content: \"\";\r\n  display: block;\r\n  width: 0px;\r\n  height: 86%;\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  opacity: 0;\r\n  background: linear-gradient(90deg, transparent, #00ffff, transparent);\r\n  box-shadow: 0 0 50px 30px #00ffff;\r\n  transform: skewX(-20deg);\r\n  transition: all 0.5s ease-in-out;\r\n}\r\n\r\n.neon-button:hover::before {\r\n  animation: neon-shine 0.6s 0s linear;\r\n}\r\n\r\n@keyframes neon-shine {\r\n  from {\r\n    opacity: 0;\r\n    left: 0%;\r\n  }\r\n\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    left: 100%;\r\n  }\r\n}\r\n\r\n.neon-button:active {\r\n  transform: scale(0.95);\r\n  box-shadow: 0 0 0 0 transparent;\r\n  transition: all 0.2s ease-in;\r\n}\r\n",
+        "dynamicData": false,
+        "dynamicFieldDisplayValues": false,
+        "dynamicHtmlGraphics": false,
+        "dynamicProps": false,
+        "html": "<a href=\"http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72278&action=showlatest\" target=\"_blank\">\r\n  <button class=\"neon-button\">Clique Aqui!</button>\r\n</a>\r\n",
+        "onInit": "// Sets the text from customProperties\nconst htmlgraphicsText = htmlNode.getElementById('htmlgraphics-text');\n\nif (htmlgraphicsText) {\n  htmlgraphicsText.textContent = customProperties.text;\n\n  // Change the text color based on the theme\n  if (theme.isDark) {\n    htmlgraphicsText.style.color = 'green';\n  } else {\n    htmlgraphicsText.style.color = 'red';\n  }\n}\n",
+        "onInitOnResize": false,
+        "onRender": "// Sets the value from the first series on every refresh\nconst htmlgraphicsValue = htmlNode.getElementById('htmlgraphics-value');\n\nif (htmlgraphicsValue) {\n  const valueField = data.series[0]?.fields[1];\n  if (valueField) {\n    const length = valueField.values.length;\n    htmlgraphicsValue.textContent = valueField.values.get(length - 1);\n  } else {\n    htmlgraphicsValue.textContent = \"No data\"\n  }\n}\n",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull",
+            "last",
+            "firstNotNull",
+            "first",
+            "min",
+            "max",
+            "mean",
+            "median",
+            "sum",
+            "count",
+            "range",
+            "delta",
+            "step",
+            "diff",
+            "logmin",
+            "allIsZero",
+            "allIsNull",
+            "diffperc"
+          ]
+        },
+        "renderOnMount": true,
+        "rootCSS": "",
+        "useGrafanaScrollbar": true
+      },
+      "pluginVersion": "2.1.1",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "kvp",
+            "keepTime": false,
+            "replace": false,
+            "source": "list_user_active"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    },
+    {
+      "datasource": {
+        "uid": "ce4lzugood4hsc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "links": [
+            {
+              "title": "Lista Usuários Ativos",
+              "url": "http://192.168.0.101/zabbix/history.php?itemids%5B0%5D=72264&action=showlatest"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "list_user_active"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 61,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0+security-01",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "evaltype": "0",
+          "functions": [
+            {
+              "added": true,
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "Usuários Ativos"
+              ],
+              "text": "setAlias()"
+            }
+          ],
+          "group": {
+            "filter": "Windows Servers"
+          },
+          "host": {
+            "filter": "SRVSPOAD01"
+          },
+          "item": {
+            "filter": "user_active"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "kvp",
+            "keepTime": false,
+            "replace": false,
+            "source": "list_user_active"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 23,
+        "x": 1,
+        "y": 19
+      },
+      "id": 59,
+      "options": {
+        "activeTheme": "Tema",
+        "disableThemePicker": true,
+        "themes": [
+          {
+            "name": "New Theme 1",
+            "styles": [
+              {
+                "props": {
+                  "theme": "default"
+                },
+                "type": "basetheme"
+              },
+              {
+                "props": {
+                  "url": "https://img.freepik.com/free-vector/black-gradient-background-spotlights-illumination_107791-1460.jpg?t=st=1746557864~exp=1746561464~hmac=cf19c85f729596e6c0a43135060059a5bd8134cd3e211d9b3c0b19aa52e3307c&w=1060"
+                },
+                "type": "bgimage"
+              },
+              {
+                "props": {
+                  "url": ""
+                },
+                "type": "url"
+              },
+              {
+                "props": {
+                  "text": ""
+                },
+                "type": "style"
+              }
+            ]
+          }
+        ]
+      },
+      "pluginVersion": "0.2.1",
+      "title": "",
+      "transparent": true,
+      "type": "yesoreyeram-boomtheme-panel"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true,
+    "refresh_intervals": [
+      "1m"
+    ]
+  },
+  "timezone": "America/Sao_Paulo",
+  "title": "Active Directory",
+  "uid": "dekzxdwdqlfk0a",
+  "version": 29,
+  "weekStart": ""
+}
